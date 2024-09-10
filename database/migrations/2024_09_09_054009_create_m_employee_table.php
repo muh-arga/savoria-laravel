@@ -12,16 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('m_employee', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id')->autoIncrement();
+            $table->primary('id');
             $table->string('nama_karyawan', 250)->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->text('alamat')->nullable();
             $table->string('email', 100)->nullable();
             $table->date('valid_from');
             $table->date('valid_to')->nullable();
-            $table->foreignId('create_by')->constrained('users');
+            $table->integer('create_by');
+            $table->foreign('create_by')->references('id')->on('users');
             $table->timestamp('create_date');
-            $table->foreignId('update_by')->nullable()->constrained('users');
+            $table->integer('update_by')->nullable();
+            $table->foreign('update_by')->references('id')->on('users');
             $table->timestamp('update_date')->nullable();
         });
     }

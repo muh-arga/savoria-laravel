@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('m_family', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('employee_id')->constrained('m_employee')->onDelete('cascade');
+            $table->integer('id')->autoIncrement();
+            $table->primary('id');
+            $table->integer('employee_id');
+            $table->foreign('employee_id')->references('id')->on('m_employee')->onDelete('cascade');
             $table->string('hubungan_keluarga', 100)->nullable();
             $table->string('nama_anggota_keluarga', 250)->nullable();
             $table->date('tanggal_lahir_anggota_keluarga')->nullable();
