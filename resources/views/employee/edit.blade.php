@@ -163,10 +163,11 @@
                         <td>
                             <select class="form-select" name="family[${count}][relationship]">
                                 <option value="" selected>--select--</option>
+                                <option value="Ibu">Ibu</option>
+                                <option value="Ayah">Ayah</option>
                                 <option value="suami">Suami</option>
                                 <option value="istri">Istri</option>
                                 <option value="anak">Anak</option>
-                                <option value="orang tua">Orang Tua</option>
                                 <option value="saudara">Saudara</option>
                             </select>
                         </td>
